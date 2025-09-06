@@ -1,226 +1,406 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>자바스크립트 : 배열 객체</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/default.min.css">
-</head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/default.min.css" />
+  </head>
 
-<body>
+  <body>
     <header id="header">
-        <h1>
-            <a href="index.html">javascript</a>
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="javascript01.html">데이터 저장하기</a></li>
-                <li><a href="javascript02.html">데이터 불러오기</a></li>
-                <li><a href="javascript03.html">데이터 실행하기</a></li>
-                <li><a href="javascript04.html">데이터 제어하기</a></li>
-            </ul>
-            <ul>
-                <li><a href="object01.html">문자열 객체</a></li>
-                <li class="active"><a href="object02.html">배열 객체</a></li>
-                <li><a href="object03.html">수학 객체</a></li>
-                <li><a href="object04.html">숫자 객체</a></li>
-                <li><a href="object05.html">브라우저 객체</a></li>
-                <li><a href="object06.html">요소 객체</a></li>
-                <li><a href="object07.html">이벤트 객체</a></li>
-            </ul>
-        </nav>
+      <h1>
+        <a href="index.html">javascript</a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="javascript01.html">데이터 저장하기</a></li>
+          <li><a href="javascript02.html">데이터 불러오기</a></li>
+          <li><a href="javascript03.html">데이터 실행하기</a></li>
+          <li><a href="javascript04.html">데이터 제어하기</a></li>
+        </ul>
+        <ul>
+          <li><a href="object01.html">문자열 객체</a></li>
+          <li class="active"><a href="object02.html">배열 객체</a></li>
+          <li><a href="object03.html">이벤트 객체</a></li>
+        </ul>
+      </nav>
     </header>
     <!-- //header -->
 
     <main id="main">
-        <div class="main__menu container">
-            <ul>
-                <li><a href="sample01">01. <em>at()</em> 메서드는 지정한 숫자(index)를 받아, 배열에서 해당 되는 인덱스의 요소를 반환합니다.</a></li>
-                <li><a href="sample02">02. <em>concat()</em> 메서드는 둘 이상의 배열을 결합하여, 새로운 배열을 반환합니다.</a></li>
-                <li><a href="sample03">03. <em>copyWithin()</em> 메서드는 배열의 일부를 얕게 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰고 그 배열을
-                        반환합니다.</a></li>
-                <li><a href="sample04">04. <em>entries()</em> 메서드는 배열의 각 인덱스에 대한 속성 값을 반환합니다.</a></li>
-                <li><a href="sample05">05. <em>keys()</em> 메서드는 배열의 각 인덱스에 대한 키 값을 반환합니다.</a></li>
-                <li><a href="sample06">06. <em>fill()</em> 메서드는 배열의 시작 인덱스부터 끝 인덱스까지 하나의 값으로 반환합니다.</a></li>
-                <li><a href="sample07">07. <em>find()</em>💛 메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</a></li>
-                <li><a href="sample08">08. <em>findIndex()</em> 메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 인덱스를 반환합니다.</a></li>
-                <li><a href="sample09">09. <em>findLast()</em> 메서드는 주어진 판별 함수를 만족하는 마지막 요소의 값을 반환합니다.</a></li>
-                <li><a href="sample10">10. <em>findLastIndex()</em> 메서드는 주어진 판별 함수를 만족하는 마지막 요소의 인덱스를 반환합니다.</a></li>
-                <li><a href="sample11">11. <em>flat()</em> 메서드는 중첩된 배열을 하나의 배열로 평탄화합니다.</a></li>
-                <li><a href="sample12">12. <em>flatMap()</em> 메서드는 먼저 매핑함수를 사용해 각 엘리먼트에 대해 map 수행 후, 결과를 새로운 배열로
-                        평탄화합니다.</a></li>
-                <li><a href="sample13">13. <em>forEach()</em>💛💛💛 메서드는 주어진 함수 조건을 배열 요소 각각에 대해 실행하고, 그 결과를 반환합니다.</a>
-                </li>
-                <li><a href="sample14">14. <em>filter()</em>💛 메서드는 주어진 함수 조건에 맞는 모든 요소를 새로운 배열로 반환합니다.</a></li>
-                <li><a href="sample15">15. <em>every()</em> 메서드는 주어진 함수를 모든 요소가 통과하는지 확인하고, 불린(true, false)로 반환합니다.</a>
-                </li>
-                <li><a href="sample16">16. <em>map()</em>💛💛💛 메서드는 주어진 함수를 호출하여 각 요소에 대한 결과를 모아 새로운 배열을 만듭니다.</a></li>
-                <li><a href="sample17">17. <em>some()</em> 메서드는 주어진 판별 함수를 하나라도 통과하는지 테스트하여, 그 결과를 불린(true, false)로
-                        반환합니다.</a></li>
-                <li><a href="sample18">18. <em>includes()</em>💛 메서드는 배열 내에 특정 요소가 포함되어 있는지를 검색하여, 불린(true, false)을
-                        반환합니다.</a></li>
-                <li><a href="sample19">19. <em>indexOf()</em>💛 메서드는 배열을 검색하고, 주어진 값과 일치하는 첫 번째 인덱스를 반환합니다.</a></li>
-                <li><a href="sample20">20. <em>lastIndexOf()</em> 메서드는 배열을 역순으로 검색하여, 주어진 값과 일치하는 첫 번째 인덱스를 반환합니다.</a>
-                </li>
-                <li><a href="sample21">21. <em>join()</em>💛💛 메서드는 배열의 요소를 연결하여 하나의 문자열로 반환합니다.</a></li>
-                <li><a href="sample22">22. <em>pop()</em> 메서드는 배열 마지막 요소를 제거하고, 그 요소를 반환합니다.</a></li>
-                <li><a href="sample23">23. <em>push()</em>💛 메서드는 배열 끝에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환합니다.</a></li>
-                <li><a href="sample24">24. <em>reduce()</em>💛 메서드는 배열의 각 요소에 주어진 리듀서 함수를 실행하고, 하나의 결과값을 반환합니다.</a></li>
-                <li><a href="sample25">25. <em>reduceRight()</em> 메서드는 배열의 각 요소를 마지막부터 실행하고, 하나의 결과값을 반환합니다.</a></li>
-                <li><a href="sample26">26. <em>reverse()</em>💛 메서드는 배열 요소의 순서를 반대로 하고, 그 결과로 변경된 배열을 반환합니다.</a></li>
-                <li><a href="sample27">27. <em>shift()</em> 메서드는 배열 처음 요소를 제거하고, 그 요소를 반환합니다.</a></li>
-                <li><a href="sample28">28. <em>unshift()</em> 메서드는 배열 앞에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환합니다.</a></li>
-                <li><a href="sample29">29. <em>slice()</em>💛💛 메서드는 배열의 지정된 부분을 새로운 배열로 반환합니다.</a></li>
-                <li><a href="sample30">30. <em>splice()</em>💛💛 메서드는 배열에서 하나 이상의 요소를 추가하거나 제거하고, 변경된 배열을 반환합니다.</a>
-                </li>
-                <li><a href="sample31">31. <em>sort()</em>💛💛 메서드는 배열의 요소를 적절한 위치에 정렬하고, 그 배열을 반환합니다.</a></li>
-                <li><a href="sample32">32. <em>toLocaleString()</em> 메서드는 배열의 요소를 로케일에 맞게 문자열로 변환하고, 그 문자열을 반환합니다.</a>
-                </li>
-                <li><a href="sample33">33. <em>toString()</em> 메서드는 배열의 요소를 문자열로 변환하고, 그 문자열을 반환합니다.</a></li>
-                <li><a href="sample34">34. <em>values()</em> 메서드는 배열의 각 요소에 대한 값을 순차적으로 반환합니다.</a></li>
-            </ul>
-        </div>
-        <!-- //main__menu -->
+      <div class="main__menu container">
+        <ul>
+          <li>
+            <a href="sample01"
+              >01. <em>at()</em> 메서드는 지정한 숫자(index)를 받아, 배열에서
+              해당 되는 인덱스의 요소를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample02"
+              >02. <em>concat()</em> 메서드는 둘 이상의 배열을 결합하여, 새로운
+              배열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample03"
+              >03. <em>copyWithin()</em> 메서드는 배열의 일부를 얕게 복사한 뒤,
+              동일한 배열의 다른 위치에 덮어쓰고 그 배열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample04"
+              >04. <em>entries()</em> 메서드는 배열의 각 인덱스에 대한 속성 값을
+              반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample05"
+              >05. <em>keys()</em> 메서드는 배열의 각 인덱스에 대한 키 값을
+              반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample06"
+              >06. <em>fill()</em> 메서드는 배열의 시작 인덱스부터 끝 인덱스까지
+              하나의 값으로 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample07"
+              >07. <em>find()</em>💛 메서드는 주어진 판별 함수를 만족하는 첫
+              번째 요소의 값을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample08"
+              >08. <em>findIndex()</em> 메서드는 주어진 판별 함수를 만족하는 첫
+              번째 요소의 인덱스를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample09"
+              >09. <em>findLast()</em> 메서드는 주어진 판별 함수를 만족하는
+              마지막 요소의 값을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample10"
+              >10. <em>findLastIndex()</em> 메서드는 주어진 판별 함수를 만족하는
+              마지막 요소의 인덱스를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample11"
+              >11. <em>flat()</em> 메서드는 중첩된 배열을 하나의 배열로
+              평탄화합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample12"
+              >12. <em>flatMap()</em> 메서드는 먼저 매핑함수를 사용해 각
+              엘리먼트에 대해 map 수행 후, 결과를 새로운 배열로 평탄화합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample13"
+              >13. <em>forEach()</em>💛💛💛 메서드는 주어진 함수 조건을 배열
+              요소 각각에 대해 실행하고, 그 결과를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample14"
+              >14. <em>filter()</em>💛 메서드는 주어진 함수 조건에 맞는 모든
+              요소를 새로운 배열로 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample15"
+              >15. <em>every()</em> 메서드는 주어진 함수를 모든 요소가
+              통과하는지 확인하고, 불린(true, false)로 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample16"
+              >16. <em>map()</em>💛💛💛 메서드는 주어진 함수를 호출하여 각
+              요소에 대한 결과를 모아 새로운 배열을 만듭니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample17"
+              >17. <em>some()</em> 메서드는 주어진 판별 함수를 하나라도
+              통과하는지 테스트하여, 그 결과를 불린(true, false)로
+              반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample18"
+              >18. <em>includes()</em>💛 메서드는 배열 내에 특정 요소가 포함되어
+              있는지를 검색하여, 불린(true, false)을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample19"
+              >19. <em>indexOf()</em>💛 메서드는 배열을 검색하고, 주어진 값과
+              일치하는 첫 번째 인덱스를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample20"
+              >20. <em>lastIndexOf()</em> 메서드는 배열을 역순으로 검색하여,
+              주어진 값과 일치하는 첫 번째 인덱스를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample21"
+              >21. <em>join()</em>💛💛 메서드는 배열의 요소를 연결하여 하나의
+              문자열로 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample22"
+              >22. <em>pop()</em> 메서드는 배열 마지막 요소를 제거하고, 그
+              요소를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample23"
+              >23. <em>push()</em>💛 메서드는 배열 끝에 하나 이상의 요소를
+              추가하고, 배열의 새로운 길이를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample24"
+              >24. <em>reduce()</em>💛 메서드는 배열의 각 요소에 주어진 리듀서
+              함수를 실행하고, 하나의 결과값을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample25"
+              >25. <em>reduceRight()</em> 메서드는 배열의 각 요소를 마지막부터
+              실행하고, 하나의 결과값을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample26"
+              >26. <em>reverse()</em>💛 메서드는 배열 요소의 순서를 반대로 하고,
+              그 결과로 변경된 배열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample27"
+              >27. <em>shift()</em> 메서드는 배열 처음 요소를 제거하고, 그
+              요소를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample28"
+              >28. <em>unshift()</em> 메서드는 배열 앞에 하나 이상의 요소를
+              추가하고, 배열의 새로운 길이를 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample29"
+              >29. <em>slice()</em>💛💛 메서드는 배열의 지정된 부분을 새로운
+              배열로 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample30"
+              >30. <em>splice()</em>💛💛 메서드는 배열에서 하나 이상의 요소를
+              추가하거나 제거하고, 변경된 배열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample31"
+              >31. <em>sort()</em>💛💛 메서드는 배열의 요소를 적절한 위치에
+              정렬하고, 그 배열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample32"
+              >32. <em>toLocaleString()</em> 메서드는 배열의 요소를 로케일에
+              맞게 문자열로 변환하고, 그 문자열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample33"
+              >33. <em>toString()</em> 메서드는 배열의 요소를 문자열로 변환하고,
+              그 문자열을 반환합니다.</a
+            >
+          </li>
+          <li>
+            <a href="sample34"
+              >34. <em>values()</em> 메서드는 배열의 각 요소에 대한 값을
+              순차적으로 반환합니다.</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- //main__menu -->
 
-        <div class="main__sample container">
-            <div id="sample01" class="sample">
-                <h3>01. find()</h3>
-                <p class="notice">const foundElement = 배열.find(function(element, index, array) {
-
-                    return 조건; // 조건이 true일 때 현재 요소를 반환
-                    });</p>
-                <ul>
-                    <li>
-                        find 메서드는 주어진 조건을 만족하는 배열의 첫 번째 요소를 반환합니다. 조건을 만족하는 요소를 찾지 못하면 undefined를 반환합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+      <div class="main__sample container">
+        <div id="sample01" class="sample">
+          <h3>01. find()</h3>
+          <p class="notice">
+            const foundElement = 배열.find(function(element, index, array) {
+            return 조건; // 조건이 true일 때 현재 요소를 반환 });
+          </p>
+          <ul>
+            <li>
+              find 메서드는 주어진 조건을 만족하는 배열의 첫 번째 요소를
+              반환합니다. 조건을 만족하는 요소를 찾지 못하면 undefined를
+              반환합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [5, 12, 8, 130, 44];
     const found = array.find(element => element > 10);
 
     console.log(found); // 12
 }</code></pre>
-                <p>위의 코드에서 find 메서드는 배열 array에서 조건을 만족하는 첫 번째 요소를 찾습니다.<br />
-                    여기서는 10보다 큰 첫 번째 요소를 찾아 반환합니다.<br />
-                    따라서 found 변수에는 12가 할당되고 콘솔에 출력됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample01 -->
+          <p>
+            위의 코드에서 find 메서드는 배열 array에서 조건을 만족하는 첫 번째
+            요소를 찾습니다.<br />
+            여기서는 10보다 큰 첫 번째 요소를 찾아 반환합니다.<br />
+            따라서 found 변수에는 12가 할당되고 콘솔에 출력됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample01 -->
 
-            <div id="sample02" class="sample">
-                <h3>02. forEach()</h3>
-                <p class="notice">"배열.forEach(function(element, index, array) {});</p>
-                <ul>
-                    <li>
-                        forEach 메서드는 배열의 각 요소에 대해 한 번씩 제공된 함수를 실행합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample02" class="sample">
+          <h3>02. forEach()</h3>
+          <p class="notice">
+            "배열.forEach(function(element, index, array) {});
+          </p>
+          <ul>
+            <li>
+              forEach 메서드는 배열의 각 요소에 대해 한 번씩 제공된 함수를
+              실행합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     array.forEach(element => console.log(element * 2));
 }</code></pre>
-                <p>위의 코드에서 forEach 메서드는 배열 array의 각 요소에 대해 주어진 함수를 실행합니다.<br />
-                    각 요소는 2를 곱한 결과가 콘솔에 출력됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample02 -->
+          <p>
+            위의 코드에서 forEach 메서드는 배열 array의 각 요소에 대해 주어진
+            함수를 실행합니다.<br />
+            각 요소는 2를 곱한 결과가 콘솔에 출력됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample02 -->
 
-            <div id="sample03" class="sample">
-                <h3>03. filter()</h3>
-                <p class="notice">const newArray = 배열.filter(function(element, index, array) {return 조건; // 조건이 true일 때
-                    요소를 새 배열에 포함});</p>
-                <ul>
-                    <li>
-                        filter 메서드는 주어진 함수로 구현된 조건을 만족하는 배열의 모든 요소를 포함하는 새로운 배열을 생성합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample03" class="sample">
+          <h3>03. filter()</h3>
+          <p class="notice">
+            const newArray = 배열.filter(function(element, index, array) {return
+            조건; // 조건이 true일 때 요소를 새 배열에 포함});
+          </p>
+          <ul>
+            <li>
+              filter 메서드는 주어진 함수로 구현된 조건을 만족하는 배열의 모든
+              요소를 포함하는 새로운 배열을 생성합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     const newArray = array.filter(element => element % 2 === 0);
 
     console.log(newArray); // [2, 4]
 }</code></pre>
-                <p>위의 코드에서 filter 메서드는 배열 array에서 주어진 함수에 따라 조건을 만족하는 요소만을 필터링하여 새로운 배열을 생성합니다.<br />
-                    여기서는 짝수만을 필터링하여 [2, 4] 배열을 생성하고, 이를 newArray 변수에 할당하여 콘솔에 출력합니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample03 -->
+          <p>
+            위의 코드에서 filter 메서드는 배열 array에서 주어진 함수에 따라
+            조건을 만족하는 요소만을 필터링하여 새로운 배열을 생성합니다.<br />
+            여기서는 짝수만을 필터링하여 [2, 4] 배열을 생성하고, 이를 newArray
+            변수에 할당하여 콘솔에 출력합니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample03 -->
 
-            <div id="sample04" class="sample">
-                <h3>04. map()</h3>
-                <p class="notice">const newArray = 배열.map(function(element, index, array){return 새로운 값;});</p>
-                <ul>
-                    <li>
-                        map 메서드는 주어진 함수를 사용하여 배열의 모든 요소에 대해 새로운 배열을 생성합니다.<br />
-                        새로운 배열은 각 요소에 함수를 적용한 결과로 이루어집니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample04" class="sample">
+          <h3>04. map()</h3>
+          <p class="notice">
+            const newArray = 배열.map(function(element, index, array){return
+            새로운 값;});
+          </p>
+          <ul>
+            <li>
+              map 메서드는 주어진 함수를 사용하여 배열의 모든 요소에 대해 새로운
+              배열을 생성합니다.<br />
+              새로운 배열은 각 요소에 함수를 적용한 결과로 이루어집니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     const newArray = array.map(element => element * 2);
 
     console.log(newArray); // [2, 4, 6, 8, 10]
 }</code></pre>
-                <p>위의 코드에서 map 메서드는 배열 array의 각 요소에 대해 주어진 함수를 적용하여 새로운 배열을 생성합니다.<br />
-                    여기서는 각 요소를 2배로 만들어 [2, 4, 6, 8, 10] 배열을 생성하고,<br />
-                    이를 newArray 변수에 할당하여 콘솔에 출력합니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample04 -->
+          <p>
+            위의 코드에서 map 메서드는 배열 array의 각 요소에 대해 주어진 함수를
+            적용하여 새로운 배열을 생성합니다.<br />
+            여기서는 각 요소를 2배로 만들어 [2, 4, 6, 8, 10] 배열을 생성하고,<br />
+            이를 newArray 변수에 할당하여 콘솔에 출력합니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample04 -->
 
-            <div id="sample05" class="sample">
-                <h3>05. includes()</h3>
-                <p class="notice">array.includes(element, start)</p>
-                <ul>
-                    <li>
-                        includes 메서드는 JavaScript에서 배열이 특정 요소를 포함하고 있는지 판별할 때 사용됩니다.<br />
-                        이 메서드는 배열에 지정된 요소가 있으면 true를, 없으면 false를 반환합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample05" class="sample">
+          <h3>05. includes()</h3>
+          <p class="notice">array.includes(element, start)</p>
+          <ul>
+            <li>
+              includes 메서드는 JavaScript에서 배열이 특정 요소를 포함하고
+              있는지 판별할 때 사용됩니다.<br />
+              이 메서드는 배열에 지정된 요소가 있으면 true를, 없으면 false를
+              반환합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const fruits = ['apple', 'banana', 'mango', 'orange'];
     const hasMango = fruits.includes('mango');  // true
     const hasCherry = fruits.includes('cherry');  // false
@@ -228,63 +408,70 @@
     console.log('Does the array include mango?', hasMango);  // Does the array include mango? true
     console.log('Does the array include cherry?', hasCherry);  // Does the array include cherry? false         
 }</code></pre>
-                <p>fruits.includes('mango')는 배열에 'mango'가 포함되어 있으므로 true를 반환합니다.<br />
-                    fruits.includes('cherry')는 배열에 'cherry'가 없으므로 false를 반환합니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample05 -->
+          <p>
+            fruits.includes('mango')는 배열에 'mango'가 포함되어 있으므로 true를
+            반환합니다.<br />
+            fruits.includes('cherry')는 배열에 'cherry'가 없으므로 false를
+            반환합니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample05 -->
 
-            <div id="sample06" class="sample">
-                <h3>06. indexOf()</h3>
-                <p class="notice">array.indexOf(searchElement, fromIndex)</p>
-                <ul>
-                    <li>
-                        indexOf 메서드는 배열에서 지정된 요소를 찾아 첫 번째로 발견된 인덱스를 반환합니다.<br />
-                        만약 배열에 해당 요소가 없으면 -1을 반환합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample06" class="sample">
+          <h3>06. indexOf()</h3>
+          <p class="notice">array.indexOf(searchElement, fromIndex)</p>
+          <ul>
+            <li>
+              indexOf 메서드는 배열에서 지정된 요소를 찾아 첫 번째로 발견된
+              인덱스를 반환합니다.<br />
+              만약 배열에 해당 요소가 없으면 -1을 반환합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     const index = array.indexOf(3);
 
     console.log(index); // 2
 }</code></pre>
-                <p>위의 코드에서 indexOf 메서드는 배열 array에서 숫자 3을 찾아 첫 번째로 발견된 인덱스를 반환합니다.<br />
-                    여기서는 2를 반환합니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample06 -->
+          <p>
+            위의 코드에서 indexOf 메서드는 배열 array에서 숫자 3을 찾아 첫
+            번째로 발견된 인덱스를 반환합니다.<br />
+            여기서는 2를 반환합니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample06 -->
 
-            <div id="sample07" class="sample">
-                <h3>07. join()</h3>
-                <p class="notice">array.join(separator)</p>
-                <ul>
-                    <li>
-                        join 메서드는 JavaScript에서 배열의 모든 요소를 연결하여 하나의 문자열로 만들 때 사용됩니다.
-                        이 메서드는 배열의 각 요소 사이에 지정된 문자열을 삽입하여 최종 문자열을 생성합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample07" class="sample">
+          <h3>07. join()</h3>
+          <p class="notice">array.join(separator)</p>
+          <ul>
+            <li>
+              join 메서드는 JavaScript에서 배열의 모든 요소를 연결하여 하나의
+              문자열로 만들 때 사용됩니다. 이 메서드는 배열의 각 요소 사이에
+              지정된 문자열을 삽입하여 최종 문자열을 생성합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const words = ['Hello', 'world', 'this', 'is', 'JavaScript'];
     const sentence = words.join(' ');  // "Hello world this is JavaScript"
     const csvFormat = words.join(',');  // "Hello,world,this,is,JavaScript"
@@ -292,226 +479,249 @@
     console.log('Sentence:', sentence);  // Sentence: Hello world this is JavaScript
     console.log('CSV format:', csvFormat);  // CSV format: Hello,world,this,is,JavaScript                    
 }</code></pre>
-                <p>words.join(' ')는 배열의 모든 요소를 공백(' ')을 사용하여 연결합니다. 이로 인해 문장처럼 읽히는 문자열이 생성됩니다.<br />
-                    words.join(',')는 배열의 모든 요소를 쉼표(',')로 연결하여 CSV 형식과 같은 문자열을 생성합니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample07 -->
+          <p>
+            words.join(' ')는 배열의 모든 요소를 공백(' ')을 사용하여
+            연결합니다. 이로 인해 문장처럼 읽히는 문자열이 생성됩니다.<br />
+            words.join(',')는 배열의 모든 요소를 쉼표(',')로 연결하여 CSV 형식과
+            같은 문자열을 생성합니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample07 -->
 
-            <div id="sample08" class="sample">
-                <h3>08. push()</h3>
-                <p class="notice">array.push(element1, element2, ..., elementN)</p>
-                <ul>
-                    <li>
-                        indexOf 메서드는 배열에서 지정된 요소를 찾아 첫 번째로 발견된 인덱스를 반환합니다.<br />
-                        만약 배열에 해당 요소가 없으면 -1을 반환합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample08" class="sample">
+          <h3>08. push()</h3>
+          <p class="notice">array.push(element1, element2, ..., elementN)</p>
+          <ul>
+            <li>
+              indexOf 메서드는 배열에서 지정된 요소를 찾아 첫 번째로 발견된
+              인덱스를 반환합니다.<br />
+              만약 배열에 해당 요소가 없으면 -1을 반환합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3];
     array.push(4, 5);
 
     console.log(array); // [1, 2, 3, 4, 5]
 }</code></pre>
-                <p>위의 코드에서 push 메서드는 배열 array의 끝에 숫자 4와 5를 추가합니다.<br />
-                    결과적으로 배열은 [1, 2, 3, 4, 5]가 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample08 -->
+          <p>
+            위의 코드에서 push 메서드는 배열 array의 끝에 숫자 4와 5를
+            추가합니다.<br />
+            결과적으로 배열은 [1, 2, 3, 4, 5]가 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample08 -->
 
-            <div id="sample09" class="sample">
-                <h3>09. reduce()</h3>
-                <p class="notice">array.reduce(function(accumulator, currentValue, currentIndex, array) {
-                    return newAccumulatorValue;
-                    }, initialValue);
-                </p>
-                <ul>
-                    <li>
-                        reduce 함수는 배열의 각 요소를 순회하며 하나의 값으로 줄여나가는 고차 함수입니다.
-                        배열의 모든 요소를 누적하여 최종적으로 하나의 값을 반환합니다.
-                        이를 통해 배열을 효과적으로 처리할 수 있습니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample09" class="sample">
+          <h3>09. reduce()</h3>
+          <p class="notice">
+            array.reduce(function(accumulator, currentValue, currentIndex,
+            array) { return newAccumulatorValue; }, initialValue);
+          </p>
+          <ul>
+            <li>
+              reduce 함수는 배열의 각 요소를 순회하며 하나의 값으로 줄여나가는
+              고차 함수입니다. 배열의 모든 요소를 누적하여 최종적으로 하나의
+              값을 반환합니다. 이를 통해 배열을 효과적으로 처리할 수 있습니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const numbers = [1, 2, 3, 4, 5];
     const sum = numbers.reduce((acc, cur) => acc + cur, 0);
     
     console.log(sum); // Output: 15
 }</code></pre>
-                <p>위의 코드에서 push 메서드는 배열 array의 끝에 숫자 4와 5를 추가합니다.<br />
-                    결과적으로 배열은 [1, 2, 3, 4, 5]가 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample09 -->
+          <p>
+            위의 코드에서 push 메서드는 배열 array의 끝에 숫자 4와 5를
+            추가합니다.<br />
+            결과적으로 배열은 [1, 2, 3, 4, 5]가 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample09 -->
 
-            <div id="sample10" class="sample">
-                <h3>10. reverse()</h3>
-                <p class="notice">array.reverse()</p>
-                <ul>
-                    <li>
-                        reverse() 함수는 JavaScript에서 배열의 순서를 뒤집는 메서드입니다.<br />
-                        이 함수는 기존 배열을 변경하며, 새로운 배열을 반환하지 않습니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample10" class="sample">
+          <h3>10. reverse()</h3>
+          <p class="notice">array.reverse()</p>
+          <ul>
+            <li>
+              reverse() 함수는 JavaScript에서 배열의 순서를 뒤집는
+              메서드입니다.<br />
+              이 함수는 기존 배열을 변경하며, 새로운 배열을 반환하지 않습니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     array.reverse();
     
     console.log(array); // Output: [5, 4, 3, 2, 1]
 }</code></pre>
-                <p>이 예제에서는 [1, 2, 3, 4, 5]라는 배열이 있습니다.<br />
-                    reverse() 메서드를 호출한 후에는 배열의 순서가 뒤집혀 [5, 4, 3, 2, 1]이 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample10 -->
+          <p>
+            이 예제에서는 [1, 2, 3, 4, 5]라는 배열이 있습니다.<br />
+            reverse() 메서드를 호출한 후에는 배열의 순서가 뒤집혀 [5, 4, 3, 2,
+            1]이 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample10 -->
 
-            <div id="sample11" class="sample">
-                <h3>11. slice()</h3>
-                <p class="notice">array.slice(start, end)
-                </p>
-                <ul>
-                    <li>
-                        slice() 메서드는 배열의 일부분을 추출하여 새로운 배열을 반환합니다.<br />
-                        이 메서드는 기존 배열을 변경하지 않습니다.
-
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample11" class="sample">
+          <h3>11. slice()</h3>
+          <p class="notice">array.slice(start, end)</p>
+          <ul>
+            <li>
+              slice() 메서드는 배열의 일부분을 추출하여 새로운 배열을
+              반환합니다.<br />
+              이 메서드는 기존 배열을 변경하지 않습니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     const slicedArray = array.slice(1, 4);
     
     console.log(slicedArray); // 출력: [2, 3, 4]
 }</code></pre>
-                <p>이 코드에서는 [1, 2, 3, 4, 5] 배열에서 인덱스 1부터 (포함) 인덱스 4까지 (미포함)의 요소들을 추출하여 slicedArray에 저장합니다.<br />
-                    따라서 slicedArray는 [2, 3, 4]가 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample11 -->
+          <p>
+            이 코드에서는 [1, 2, 3, 4, 5] 배열에서 인덱스 1부터 (포함) 인덱스
+            4까지 (미포함)의 요소들을 추출하여 slicedArray에 저장합니다.<br />
+            따라서 slicedArray는 [2, 3, 4]가 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample11 -->
 
-            <div id="sample12" class="sample">
-                <h3>12. splice()</h3>
-                <p class="notice">array.splice(start, deleteCount, item1, item2, ..., itemN)</p>
-                <ul>
-                    <li>
-                        splice() 메서드는 배열의 내용을 추가하거나 제거하여 배열을 수정합니다. 이 메서드는 기존 배열을 변경합니다.<br />
-                        <br />
-                        splice() 메서드는 세 가지 매개변수를 받습니다:<br />
-                        <br />
-                        시작 인덱스 (필수): 배열에서 변경을 시작할 위치를 나타냅니다.<br />
-                        제거할 요소의 개수 (선택적): 시작 인덱스부터 제거할 요소의 수를 나타냅니다. 생략하면 시작 인덱스부터 끝까지의 모든 요소를 제거합니다.<br />
-                        추가할 요소들 (선택적): 배열에 추가할 요소들입니다. 이 부분이 생략되면 요소를 제거만 합니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample12" class="sample">
+          <h3>12. splice()</h3>
+          <p class="notice">
+            array.splice(start, deleteCount, item1, item2, ..., itemN)
+          </p>
+          <ul>
+            <li>
+              splice() 메서드는 배열의 내용을 추가하거나 제거하여 배열을
+              수정합니다. 이 메서드는 기존 배열을 변경합니다.<br />
+              <br />
+              splice() 메서드는 세 가지 매개변수를 받습니다:<br />
+              <br />
+              시작 인덱스 (필수): 배열에서 변경을 시작할 위치를 나타냅니다.<br />
+              제거할 요소의 개수 (선택적): 시작 인덱스부터 제거할 요소의 수를
+              나타냅니다. 생략하면 시작 인덱스부터 끝까지의 모든 요소를
+              제거합니다.<br />
+              추가할 요소들 (선택적): 배열에 추가할 요소들입니다. 이 부분이
+              생략되면 요소를 제거만 합니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const array = [1, 2, 3, 4, 5];
     array.splice(2, 1, 'a', 'b');
     
     console.log(array); // 출력: [1, 2, 'a', 'b', 4, 5]
 }</code></pre>
-                <p>이 코드에서는 [1, 2, 3, 4, 5] 배열에서 인덱스 2부터 시작하여 1개의 요소를 제거하고,<br />
-                    그 위치에 'a'와 'b'를 추가합니다. 따라서 변경된 배열은 [1, 2, 'a', 'b', 4, 5]가 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample12 -->
+          <p>
+            이 코드에서는 [1, 2, 3, 4, 5] 배열에서 인덱스 2부터 시작하여 1개의
+            요소를 제거하고,<br />
+            그 위치에 'a'와 'b'를 추가합니다. 따라서 변경된 배열은 [1, 2, 'a',
+            'b', 4, 5]가 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- //sample12 -->
 
-            <div id="sample13" class="sample">
-                <h3>13. sort()</h3>
-                <p class="notice">array.sort(compareFunction)
-                </p>
-                <ul>
-                    <li>
-                        sort() 메서드는 배열의 요소를 적절한 순서로 정렬합니다.<br />
-                        이 때, 기본적으로는 문자열로 변환한 값에 따라 정렬이 이루어집니다.<br />
-                        원본 배열을 변경하며, 정렬된 배열을 반환합니다.<br />
-                        <br />
-                        만약 정렬 순서를 정의하기 위해 비교 함수를 제공하지 않으면,<br />
-                        요소들은 문자열로 변환된 후 Unicode 코드 포인트 순서로 정렬됩니다.
-                    </li>
-                </ul>
-                <pre class="javascript"><code>{
+        <div id="sample13" class="sample">
+          <h3>13. sort()</h3>
+          <p class="notice">array.sort(compareFunction)</p>
+          <ul>
+            <li>
+              sort() 메서드는 배열의 요소를 적절한 순서로 정렬합니다.<br />
+              이 때, 기본적으로는 문자열로 변환한 값에 따라 정렬이
+              이루어집니다.<br />
+              원본 배열을 변경하며, 정렬된 배열을 반환합니다.<br />
+              <br />
+              만약 정렬 순서를 정의하기 위해 비교 함수를 제공하지 않으면,<br />
+              요소들은 문자열로 변환된 후 Unicode 코드 포인트 순서로 정렬됩니다.
+            </li>
+          </ul>
+          <pre class="javascript"><code>{
     const numbers = [5, 2, 8, 1, 4];
     numbers.sort((a, b) => a - b);
     
     console.log(numbers); // 출력: [1, 2, 4, 5, 8]
 }</code></pre>
-                <p>이 코드에서는 [5, 2, 8, 1, 4] 배열을 오름차순으로 정렬하기 위해 sort() 메서드를 호출하고,<br />
-                    비교 함수를 제공하여 숫자의 크기를 기준으로 정렬합니다.<br />
-                    결과적으로 정렬된 배열은 [1, 2, 4, 5, 8]가 됩니다.
-                </p>
-                <div class="result">
-                    <details>
-                        <summary>결과 확인하기</summary>
-                        <div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </details>
-                </div>
-            </div>
-            <!-- //sample13 -->
+          <p>
+            이 코드에서는 [5, 2, 8, 1, 4] 배열을 오름차순으로 정렬하기 위해
+            sort() 메서드를 호출하고,<br />
+            비교 함수를 제공하여 숫자의 크기를 기준으로 정렬합니다.<br />
+            결과적으로 정렬된 배열은 [1, 2, 4, 5, 8]가 됩니다.
+          </p>
+          <div class="result">
+            <details>
+              <summary>결과 확인하기</summary>
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+            </details>
+          </div>
         </div>
-        <!-- //main__sample container-->
+        <!-- //sample13 -->
+      </div>
+      <!-- //main__sample container-->
     </main>
     <!-- //main -->
 
@@ -519,8 +729,8 @@
     <!-- //footer -->
 
     <script src="assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-</body>
-
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
 </html>
